@@ -1,13 +1,13 @@
 class Car{
     #brand;
     #model;
-    #speed;
+    speed;
     isTrunckOpen=false;
     constructor(carDetails){
         this.#brand=carDetails.brand;
         this.#model=carDetails.model;
         this.isTrunckOpen=carDetails.isTrunckOpen;
-        this.#speed=0;
+        this.speed=0;
         
        /* console.log(`car name:${this.brand} and car model:${this.model}`);*/
         this.displayInfo();
@@ -22,14 +22,14 @@ class Car{
     } //carDetails: acting like objects this way clean code .
     displayInfo(){
         const trunkStatus=this.isTrunckOpen ? 'open' : 'closed';
-        console.log(`car name:${this.#brand} and car model:${this.#model} ,speed of car:${this.#speed},car istrunckopen:${trunkStatus}`);
+        console.log(`car name:${this.#brand} and car model:${this.#model} ,speed of car:${this.speed},car istrunckopen:${trunkStatus}`);
     };
     go(){
-       this.#speed+=5;
+       this.speed+=5;
        this.displayInfo();
     }
     break(){
-        if(this.#speed>0){
+        if(this.speed>0){
             this.displayInfo();
         }  
         else{
