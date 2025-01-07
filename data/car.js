@@ -39,7 +39,20 @@ class Car{
     }
     
 }
+class Racecar extends Car{
+    acceleration;
+    constructor(carDetails){
+      super(carDetails); //always parent constructor firstly call after use this keyword.
+      this.acceleration=carDetails.acceleration;
+      
+    }
+    go(){
+        this.speed+=this.acceleration;
+        this.displayInfo();
+    }
+}
 const carpro=new Car({brand:'Toyota',model:'Corolla'}); // instance of class 
 const carpro1=new Car({brand:'Tesla',model:'Model 3' ,isTrunckOpen:true});
 console.log(carpro1);
 carpro.go(); //call method through intance.
+const racecar=new Racecar({brand:'toyota',model:'Fortuner' ,isTrunckOpen:true,acceleration:20});
