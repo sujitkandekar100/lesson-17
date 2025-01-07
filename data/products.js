@@ -58,6 +58,26 @@ class Clothing extends Product {
   }
 }
 
+class Appliance extends Product{
+instructionsLink;
+warrantyLink;
+constructor(productDetails){
+  super(productDetails);
+  this.instructionsLink=productDetails.instructionsLink;
+  this.warrantyLink=productDetails.warrantyLink;
+}
+extraInfoHTML(){
+  return `
+      <a href="${this.instructionsLink}" target="_blank">
+        Instructions
+      </a>
+      <a href="${this.warrantyLink}"
+      target="-blank">Warranty
+      </a>
+    `;
+}
+}
+
 /*
 const date = new Date();
 console.log(date);
@@ -147,7 +167,10 @@ export const products = [
       "toaster",
       "kitchen",
       "appliances"
-    ]
+    ],
+     type: "appliances",
+    instructionsLink: "images/appliances-instrustion.png",
+    warrantyLink:"images/appliances-warranty.png"
   },
   {
     id: "3ebe75dc-64d2-4137-8860-1f5a963e534b",
@@ -560,7 +583,9 @@ export const products = [
     keywords: [
       "cooking set",
       "kitchen"
-    ]
+    ],type: "appliances",
+    instructionsLink: "images/appliances-instrustions.png",
+    warrantyLink:"images/appliances-warranty.png"
   },
   {
     id: "a434b69f-1bc1-482d-9ce7-cd7f4a66ce8d",
@@ -622,7 +647,9 @@ export const products = [
       "boxes",
       "food containers",
       "kitchen"
-    ]
+    ],type: "appliances",
+    instructionsLink: "images/appliances-instrustion.png",
+    warrantyLink:"images/appliances-warranty.png"
   },
   {
     id: "0d7f9afa-2efe-4fd9-b0fd-ba5663e0a524",
@@ -749,6 +776,9 @@ export const products = [
 ].map((productDetails) => {
   if (productDetails.type === 'clothing') {
     return new Clothing(productDetails);
+  }
+  else if(productDetails.type === 'appliances'){
+    return new Appliance(productDetails);
   }
   return new Product(productDetails);
 });
